@@ -1,5 +1,8 @@
 InLieuOfFlowers::Application.routes.draw do
   
+  resources :honoreds do
+  end
+
   devise_for :users
 
   root :to => 'main#home'
