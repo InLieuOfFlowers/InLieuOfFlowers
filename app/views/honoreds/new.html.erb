@@ -4,6 +4,20 @@
 	<%= f.text_field :first_name %>
 	<%= f.label :last_name %>
 	<%= f.text_field :last_name %>
+	<%= f.p
+		"The following information is optional. It will be displayed to the donor
+			to help them varify they have found the right honored to donate to."
+	%>
+	<%= f.label :date_of_birth %>
+	<%= f.date_field :date_of_birth %>
+	<%= f.label :date_of_death %>
+	<%= f.date_field :date_of_death %>
+	<%= f.label :city %>
+	<%= f.text_field :city %>
+	<%= f.label :state %>
+	<%= f.text_field :state %>
+	<%= f.label :description %>
+	<%= f.text_box :description %>
 	<%= f.submit "Create Honored Account", class: "btn btn-large btn-primary" %>
 	<% end %>
 </div>
