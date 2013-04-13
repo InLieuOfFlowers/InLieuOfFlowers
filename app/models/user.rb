@@ -13,6 +13,12 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  street                 :string(255)
+#  city                   :string(255)
+#  state                  :string(255)
+#  zip                    :string(255)
+#  phone                  :string(255)
+#  administrator          :boolean          default(FALSE)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -25,6 +31,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+  	:street, :city, :state, :zip, :phone, :administrator
   # attr_accessible :title, :body
 end
