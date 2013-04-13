@@ -1,5 +1,20 @@
 InLieuOfFlowers::Application.routes.draw do
   
+  resources :honored_organizations do
+  end
+
+  resources :donation_details do
+  end
+
+  resources :donations do
+  end
+
+  resources :organizations do
+  end
+
+  resources :honoreds do
+  end
+
   devise_for :users
 
   root :to => 'main#home'
