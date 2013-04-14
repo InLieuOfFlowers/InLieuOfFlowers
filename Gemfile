@@ -26,6 +26,7 @@ end
 
 gem 'jquery-rails'
 gem 'bootstrap-sass'
+gem 'bootstrap-datepicker-rails'
 gem 'devise'
 
 # To use ActiveModel has_secure_password
