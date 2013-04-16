@@ -4,6 +4,9 @@ class OrganizationsController < ApplicationController
   end
 
   def create
+    @organization = Organization.new(params[:organization])
+    @organization.status = 'pending'
+    @organization.save
   end
 
   def update

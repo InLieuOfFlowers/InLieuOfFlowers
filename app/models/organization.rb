@@ -13,8 +13,9 @@
 #  contact_name :string(255)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  status       :string(255)
 #
 
 class Organization < ActiveRecord::Base
-  attr_accessible :city, :contact_name, :email, :name, :phone, :state, :street, :zip
+  attr_accessible :city, :contact_name, :email, :name, :phone, :state, :street, :zip, :status
 end
