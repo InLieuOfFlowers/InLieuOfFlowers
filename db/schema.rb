@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417003900) do
+ActiveRecord::Schema.define(:version => 20130417031259) do
 
   create_table "donation_details", :force => true do |t|
     t.integer  "donation_id"
@@ -49,17 +49,17 @@ ActiveRecord::Schema.define(:version => 20130417003900) do
   end
 
   create_table "organizations", :force => true do |t|
-    t.string   "name"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.string   "email"
-    t.string   "contact_name"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-    t.string   "status"
+    t.string   "name",         :default => "",        :null => false
+    t.string   "street",       :default => "",        :null => false
+    t.string   "city",         :default => "",        :null => false
+    t.string   "state",        :default => "",        :null => false
+    t.string   "zip",          :default => "",        :null => false
+    t.string   "phone",        :default => "",        :null => false
+    t.string   "email",        :default => "",        :null => false
+    t.string   "contact_name", :default => "",        :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "status",       :default => "pending", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -73,16 +73,16 @@ ActiveRecord::Schema.define(:version => 20130417003900) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "street"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zip"
-    t.string   "phone"
-    t.boolean  "administrator",          :default => false
+    t.string   "street",                 :default => "",    :null => false
+    t.string   "city",                   :default => "",    :null => false
+    t.string   "state",                  :default => "",    :null => false
+    t.string   "zip",                    :default => "",    :null => false
+    t.string   "phone",                  :default => "",    :null => false
+    t.boolean  "administrator",          :default => false, :null => false
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",             :default => "",    :null => false
+    t.string   "last_name",              :default => "",    :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

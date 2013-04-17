@@ -13,16 +13,16 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  street                 :string(255)
-#  city                   :string(255)
-#  state                  :string(255)
-#  zip                    :string(255)
-#  phone                  :string(255)
-#  administrator          :boolean          default(FALSE)
+#  street                 :string(255)      default(""), not null
+#  city                   :string(255)      default(""), not null
+#  state                  :string(255)      default(""), not null
+#  zip                    :string(255)      default(""), not null
+#  phone                  :string(255)      default(""), not null
+#  administrator          :boolean          default(FALSE), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  first_name             :string(255)
-#  last_name              :string(255)
+#  first_name             :string(255)      default(""), not null
+#  last_name              :string(255)      default(""), not null
 #
 
 class User < ActiveRecord::Base
@@ -36,4 +36,19 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me,
   	:first_name, :last_name, :street, :city, :state, :zip, :phone, :administrator
   # attr_accessible :title, :body
+
+  before_save { |user| user.email = email.downcase }
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX },
+  	uniqueness: {case_sensitive: false}
+  validates :password, presence: true
+  validates :password_confirmation, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :street, presence: true
+  validates :city, presence: true
+  validates :state, presence: true, length: { maximum: 2 }
+  validates :zip, presence: true
+  validates :phone, presence: true, length: { maximum: 10 }
 end
