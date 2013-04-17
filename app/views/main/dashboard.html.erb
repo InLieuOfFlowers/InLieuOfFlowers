@@ -1,0 +1,11 @@
+<div>
+	<h1>Welcome <%= current_user.first_name %></h1>
+	<div class="fluid-row">
+		<div class="mystyle span3">
+			<%= link_to 'Make A Donation', new_donation_path, class: 'btn btn-success' %>
+		</div>
+		<div class='mystyle span3'>
+			<%= link_to 'Make an account for your loved one', new_honored_path, class: 'btn btn-success' %>
+		</div>
+	</div>
+</div>

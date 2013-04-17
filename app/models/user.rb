@@ -21,6 +21,8 @@
 #  administrator          :boolean          default(FALSE)
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  first_name             :string(255)
+#  last_name              :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -32,6 +34,6 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me,
-  	:street, :city, :state, :zip, :phone, :administrator
+  	:first_name, :last_name, :street, :city, :state, :zip, :phone, :administrator
   # attr_accessible :title, :body
 end

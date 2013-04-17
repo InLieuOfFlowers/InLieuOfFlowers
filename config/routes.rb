@@ -21,6 +21,7 @@ InLieuOfFlowers::Application.routes.draw do
   match '/about', to: 'main#about'
   match '/help', to: 'main#help'
   match '/contact', to: 'main#contact'
+  match '/dashboard', to: 'main#dashboard'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
