@@ -8,8 +8,10 @@
 			<li>City         : <%= @honored.city %></li>
 			<li>State        : <%= @honored.state %></li>
 			<li>Description  : <%= @honored.description %></li>
+			<li>Current User Id : <%= current_user.id %></li>
+			<li>Current User admin : <%= current_user.administrator %></li>
 		</ul>
-		<%= link_to "Edit Information", edit_honored_path, class: 'btn btn-warning' %>
+		<%= link_to "Edit Information", edit_honored_path, id: object_id, class: 'btn btn-warning' %>
 		<%= link_to "Add Organizations for Donations", new_honored_organization_path,
 			class: 'btn btn-success' %>
 	</div>

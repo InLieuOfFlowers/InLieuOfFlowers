@@ -1,18 +1,38 @@
 class OrganizationsController < ApplicationController
   def new
-    @organization = Organization.new
+    if user_signed_in?
+      @organization = Organization.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def create
-    @organization = Organization.new(params[:organization])
-    @organization.status = 'pending'
-    @organization.save
-  end
+    if user_signed_in?
+      @organization = Organization.new(params[:organization])
+      @organization.status = 'pending'
 
-  def update
+      if @organization.save
+        redirect_to @organization
+      else
+        render 'new'
+      end
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def edit
+    if user_signed_in?
+      if params[:id]
+        @organization = Organization.find(params[:id])
+      end
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
+  def update
   end
 
   def destroy

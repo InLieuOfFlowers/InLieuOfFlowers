@@ -1,5 +1,5 @@
 <div class="mystyle">
-  <h1>Edit <%= resource_name.to_s.humanize %></h1>
+  <h1>Edit Organization</h1>
   <% @organization.errors.full_messages.each do |msg| %>
     <p class='alert alert-error'><%= msg %></p>
   <% end %>
@@ -61,7 +61,7 @@
 
       <div class='control-group'>
         <div class='controls'>
-          <%= f.submit "Add Organization", class: "btn btn-large btn-success" %>
+          <%= f.submit "Update Organization", class: "btn btn-large btn-success" %>
       </div>
     </div>
 	<% end %>

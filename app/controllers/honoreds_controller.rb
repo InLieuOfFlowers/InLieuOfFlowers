@@ -16,12 +16,30 @@ class HonoredsController < ApplicationController
       render 'new'
     end
  
-  end
-
-  def update
-  end
+  end  
 
   def edit
+    if user_signed_in?
+      if params.has_key?(:id)
+        @honored = Honored.find(params[:id])
+
+        if current_user.id != @honored.user_id
+          if current_user.administrator?
+            redirect_to dashboard_path
+          end
+        end
+      end
+    end
+  end
+
+  def update  
+    @honored = Honored.find(params[:id])
+
+    if @honored.update_attributes(params[:honored])
+      redirect_to @honored
+    else
+      render 'edit'
+    end
   end
 
   def destroy
