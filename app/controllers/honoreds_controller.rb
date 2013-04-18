@@ -25,7 +25,7 @@ class HonoredsController < ApplicationController
 
         if current_user.id != @honored.user_id
           if current_user.administrator?
-            redirect_to dashboard_path
+            redirect_to @honored
           end
         end
       end
