@@ -1,5 +1,20 @@
 <div class="row-fluid">
 	<div class="mystyle span8 offset2">
-		<%= will_paginate @organization %>
+		<ul>
+  			<% @organization.each do |organization| %>
+   				<li>
+   					<ul>
+   						<li><%= organization.name %></li>
+   						<li><%= organization.street %>,
+   							<%=	organization.city %>,
+   							<%=	organization.state %>
+   							<%=	organization.zip %></li>
+   						<li><%= organization.phone %></li>
+   						<li><%= organization.email %></li>
+   					</ul>
+   				</li>
+  			<% end %>
+		</ul>
+		<%= will_paginate @organization, :renderer => BootstrapPagination::Rails %>
 	</div>
 </div>

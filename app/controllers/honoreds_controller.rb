@@ -46,6 +46,7 @@ class HonoredsController < ApplicationController
   end
 
   def index
+    @honored = Honored.paginate(page: params[:page])
   end
 
   def show

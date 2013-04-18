@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417193749) do
+ActiveRecord::Schema.define(:version => 20130418223823) do
 
   create_table "donation_details", :force => true do |t|
     t.integer  "donation_id"
@@ -36,17 +36,21 @@ ActiveRecord::Schema.define(:version => 20130417193749) do
   end
 
   create_table "honoreds", :force => true do |t|
-    t.string   "first_name",                           :null => false
-    t.string   "last_name",                            :null => false
+    t.string   "first_name",                                 :null => false
+    t.string   "last_name",                                  :null => false
     t.date     "date_of_birth"
     t.date     "date_of_death"
     t.string   "city"
     t.string   "state"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",                           :null => false
-    t.datetime "updated_at",                           :null => false
-    t.string   "status",        :default => "pending", :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "status",              :default => "pending", :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "organizations", :force => true do |t|
