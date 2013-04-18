@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
 
   def edit
     if user_signed_in?
-      if params[:id]
+      if params.has_key?(:id)
         if @organization = Organization.find(params[:id])
           if !current_user.administrator?
             if @organization.status != 'Pending'
@@ -54,6 +54,7 @@ class OrganizationsController < ApplicationController
   end
 
   def index
+    @organization = Organization.paginate(page: params[:page])
   end
 
   def show

@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'
 gem 'devise'
+gem 'will_paginate'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
