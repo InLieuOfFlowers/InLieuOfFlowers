@@ -1,68 +1,68 @@
 <div class="mystyle">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  <div>
-  	<%= form_for(@organization, :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
-    <%= devise_error_messages! %>
-  		<div class='control-group'>
-  			<%= f.label :name, class: 'control-label' %>
+  <h1>Edit <%= resource_name.to_s.humanize %></h1>
+  <% @organization.errors.full_messages.each do |msg| %>
+    <p class='alert alert-error'><%= msg %></p>
+  <% end %>
+  <%= form_for(@organization, :html => { :method => :put, :class => 'form-horizontal' }) do |f| %>
+  	<div class='control-group'>
+			<%= f.label :name, class: 'control-label' %>
+			<div class='controls'>
+				<%= f.text_field :name %>
+			</div>
+		</div>
+		<div class='control-group'>
+			<%= f.label :street, class: 'control-label' %>
+			<div class='controls'>
+				<%= f.text_field :street %>
+			</div>
+		</div>
+
+		<div class='control-group'>
+  			<%= f.label :city, class: 'control-label' %>
   			<div class='controls'>
-  				<%= f.text_field :name %>
+  				<%= f.text_field :city %>
   			</div>
   		</div>
+
   		<div class='control-group'>
-  			<%= f.label :street, class: 'control-label' %>
+  			<%= f.label :state, class: 'control-label' %>
   			<div class='controls'>
-  				<%= f.text_field :street %>
+  				<%= f.text_field :state %>
   			</div>
   		</div>
 
   		<div class='control-group'>
-    			<%= f.label :city, class: 'control-label' %>
-    			<div class='controls'>
-    				<%= f.text_field :city %>
-    			</div>
-    		</div>
+  			<%= f.label :zip, class: 'control-label' %>
+  			<div class='controls'>
+  				<%= f.text_field :zip %>
+  			</div>
+  		</div>
 
-    		<div class='control-group'>
-    			<%= f.label :state, class: 'control-label' %>
-    			<div class='controls'>
-    				<%= f.text_field :state %>
-    			</div>
-    		</div>
+  		<div class='control-group'>
+  			<%= f.label :phone, class: 'control-label' %>
+  			<div class='controls'>
+  				<%= f.text_field :phone, class: 'phone' %>
+  			</div>
+  		</div>
 
-    		<div class='control-group'>
-    			<%= f.label :zip, class: 'control-label' %>
-    			<div class='controls'>
-    				<%= f.text_field :zip %>
-    			</div>
-    		</div>
+  		<div class='control-group'>
+  			<%= f.label :email, class: 'control-label' %>
+  			<div class='controls'>
+  				<%= f.text_field :email %>
+  			</div>
+  		</div>
 
-    		<div class='control-group'>
-    			<%= f.label :phone, class: 'control-label' %>
-    			<div class='controls'>
-    				<%= f.text_field :phone, class: 'phone' %>
-    			</div>
-    		</div>
+  		<div class='control-group'>
+  			<%= f.label :contact_name, class: 'control-label' %>
+  			<div class='controls'>
+  				<%= f.text_field :contact_name %>
+  			</div>
+  		</div>
 
-    		<div class='control-group'>
-    			<%= f.label :email, class: 'control-label' %>
-    			<div class='controls'>
-    				<%= f.text_field :email %>
-    			</div>
-    		</div>
-
-    		<div class='control-group'>
-    			<%= f.label :contact_name, class: 'control-label' %>
-    			<div class='controls'>
-    				<%= f.text_field :contact_name %>
-    			</div>
-    		</div>
-
-        <div class='control-group'>
-          <div class='controls'>
-            <%= f.submit "Add Organization", class: "btn btn-large btn-success" %>
-        </div>
+      <div class='control-group'>
+        <div class='controls'>
+          <%= f.submit "Add Organization", class: "btn btn-large btn-success" %>
       </div>
-  	<% end %>
-  </div>
+    </div>
+	<% end %>
 </div>

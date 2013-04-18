@@ -3,14 +3,14 @@
 # Table name: organizations
 #
 #  id           :integer          not null, primary key
-#  name         :string(255)      default(""), not null
-#  street       :string(255)      default(""), not null
-#  city         :string(255)      default(""), not null
-#  state        :string(255)      default(""), not null
-#  zip          :string(255)      default(""), not null
-#  phone        :string(255)      default(""), not null
-#  email        :string(255)      default(""), not null
-#  contact_name :string(255)      default(""), not null
+#  name         :string(255)      not null
+#  street       :string(255)      not null
+#  city         :string(255)      not null
+#  state        :string(255)      not null
+#  zip          :string(255)      not null
+#  phone        :string(255)      not null
+#  email        :string(255)      not null
+#  contact_name :string(255)      not null
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #  status       :string(255)      default("pending"), not null
@@ -26,7 +26,7 @@ class Organization < ActiveRecord::Base
   validates :city, presence: true
   validates :contact_name, presence: true
   validates :name, presence: true
-  validates :phone, presence: true, length: { maximum: 10 }
+  validates :phone, presence: true, length: { maximum: 13 }
   validates :state, presence: true, length: { maximum: 2 }
   validates :street, presence: true
   validates :zip, presence: true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130417031259) do
+ActiveRecord::Schema.define(:version => 20130417193749) do
 
   create_table "donation_details", :force => true do |t|
     t.integer  "donation_id"
@@ -36,27 +36,28 @@ ActiveRecord::Schema.define(:version => 20130417031259) do
   end
 
   create_table "honoreds", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "first_name",                           :null => false
+    t.string   "last_name",                            :null => false
     t.date     "date_of_birth"
     t.date     "date_of_death"
     t.string   "city"
     t.string   "state"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "status",        :default => "pending", :null => false
   end
 
   create_table "organizations", :force => true do |t|
-    t.string   "name",         :default => "",        :null => false
-    t.string   "street",       :default => "",        :null => false
-    t.string   "city",         :default => "",        :null => false
-    t.string   "state",        :default => "",        :null => false
-    t.string   "zip",          :default => "",        :null => false
-    t.string   "phone",        :default => "",        :null => false
-    t.string   "email",        :default => "",        :null => false
-    t.string   "contact_name", :default => "",        :null => false
+    t.string   "name",                                :null => false
+    t.string   "street",                              :null => false
+    t.string   "city",                                :null => false
+    t.string   "state",                               :null => false
+    t.string   "zip",                                 :null => false
+    t.string   "phone",                               :null => false
+    t.string   "email",                               :null => false
+    t.string   "contact_name",                        :null => false
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "status",       :default => "pending", :null => false
@@ -73,16 +74,16 @@ ActiveRecord::Schema.define(:version => 20130417031259) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "street",                 :default => "",    :null => false
-    t.string   "city",                   :default => "",    :null => false
-    t.string   "state",                  :default => "",    :null => false
-    t.string   "zip",                    :default => "",    :null => false
-    t.string   "phone",                  :default => "",    :null => false
+    t.string   "street",                                    :null => false
+    t.string   "city",                                      :null => false
+    t.string   "state",                                     :null => false
+    t.string   "zip",                                       :null => false
+    t.string   "phone",                                     :null => false
     t.boolean  "administrator",          :default => false, :null => false
     t.datetime "created_at",                                :null => false
     t.datetime "updated_at",                                :null => false
-    t.string   "first_name",             :default => "",    :null => false
-    t.string   "last_name",              :default => "",    :null => false
+    t.string   "first_name",                                :null => false
+    t.string   "last_name",                                 :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -13,16 +13,16 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
-#  street                 :string(255)      default(""), not null
-#  city                   :string(255)      default(""), not null
-#  state                  :string(255)      default(""), not null
-#  zip                    :string(255)      default(""), not null
-#  phone                  :string(255)      default(""), not null
+#  street                 :string(255)      not null
+#  city                   :string(255)      not null
+#  state                  :string(255)      not null
+#  zip                    :string(255)      not null
+#  phone                  :string(255)      not null
 #  administrator          :boolean          default(FALSE), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  first_name             :string(255)      default(""), not null
-#  last_name              :string(255)      default(""), not null
+#  first_name             :string(255)      not null
+#  last_name              :string(255)      not null
 #
 
 class User < ActiveRecord::Base
@@ -50,5 +50,5 @@ class User < ActiveRecord::Base
   validates :city, presence: true
   validates :state, presence: true, length: { maximum: 2 }
   validates :zip, presence: true
-  validates :phone, presence: true, length: { maximum: 10 }
+  validates :phone, presence: true, length: { maximum: 13 }
 end

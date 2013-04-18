@@ -1,2 +1,16 @@
-<h1>Honored#show</h1>
-<p>Find me in app/views/honored/show.html.erb</p>
+<div class="row-fluid">
+	<h1>Honored saved</h1>
+	<div class="mystyle span8 offset2">
+		<ul>
+			<li>Name         : <%= @honored.first_name %> <%= @honored.last_name %></li>
+			<li>Date of Birth: <%= @honored.date_of_birth %></li>
+			<li>Date of Death: <%= @honored.date_of_death %></li>
+			<li>City         : <%= @honored.city %></li>
+			<li>State        : <%= @honored.state %></li>
+			<li>Description  : <%= @honored.description %></li>
+		</ul>
+		<%= link_to "Edit Information", edit_honored_path, class: 'btn btn-warning' %>
+		<%= link_to "Add Organizations for Donations", new_honored_organization_path,
+			class: 'btn btn-success' %>
+	</div>
+</div>
