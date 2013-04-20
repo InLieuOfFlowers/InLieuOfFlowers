@@ -1,5 +1,6 @@
 class HonoredOrganizationsController < ApplicationController
   def new
+    @organization = Organization.all
   end
 
   def create

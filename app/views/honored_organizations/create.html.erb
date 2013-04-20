@@ -1,2 +1,14 @@
-<h1>HonoredOrganizations#create</h1>
-<p>Find me in app/views/honored_organizations/create.html.erb</p>
+<div class="row-fluid">
+	<div class='mystyle span8 offset2'>
+		<h1>Add organizations</h1>
+		<p>
+			Add organization that you would like to collect donations for
+			in your loved one's name.
+		</p>
+		<%= form_for(@honored, :html => { :class => 'form-horizontal', :multipart => true }) do |f| %>
+			<div class="control-group">
+				<%= f.label "Organizations" %>
+			</div>
+		<% end %>
+	</div>
+</div>
