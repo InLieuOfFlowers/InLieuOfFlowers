@@ -1,2 +1,15 @@
-<h1>HonoredOrganizations#new</h1>
-<p>Find me in app/views/honored_organizations/new.html.erb</p>
+<div class="row-fliud">
+	<%= form_for(@honored_organization, :html => { :class => 'form-horizontal'}) do |f| %>
+		<div class="control-group">
+			<%= f.label "Organization Name", class: "control-label" %>
+			<div class="controls">
+				<%= f.collection_select(:organization_id, @organization, :id, :name) %>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<%= f.submit "Finalize Organizations", class: "btn btn-large btn-primary" %>
+			</div>
+		</div>
+	<% end %>
+</div>
