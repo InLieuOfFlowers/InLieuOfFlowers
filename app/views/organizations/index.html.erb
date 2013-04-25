@@ -7,16 +7,16 @@
       </p>
     <% end %>
   </div>
-	<div class="mystyle span8">
-		<ul>
-  			<% for organization in @organization %>
-   				<li>
-   					<ul>
-   						<li><%= link_to organization.name, organization %></li>
-    					</ul>
-   				</li>
-  			<% end %>
-		</ul>
-		<%= will_paginate @organization, :renderer => BootstrapPagination::Rails %>
+	<div class="mystyle span8"> 
+    <% if @organization.blank? %> 
+		  <ul>
+  			 <% for organization in @organization %>
+   				 <li><%= link_to organization.name, organization %></li>
+  			 <% end %>
+		  </ul>
+		  <%= will_paginate @organization, :renderer => BootstrapPagination::Rails %>
+    <% else %>
+      <p>No results found. </p>
+    <% end %>
 	</div>
 </div>

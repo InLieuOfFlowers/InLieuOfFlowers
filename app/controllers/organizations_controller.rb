@@ -42,7 +42,7 @@ class OrganizationsController < ApplicationController
 
   def index
     if params.has_key?(:search)
-      @organization = Organization.where("name like ?", "%#{params[:search]}%").to_sql
+      @organization = Organization.where("name like ?", "%#{params[:search]}%")
     else  
       @organization = Organization.paginate(page: params[:page], :per_page => 30)
     end
