@@ -12,9 +12,7 @@ class OrganizationsController < ApplicationController
       @organization = Organization.new(params[:organization])
       @organization.status = 'pending'
 
-      if @organization.save
-        redirect_to @organization
-      else
+      if !@organization.save
         render 'new'
       end
     else
@@ -24,19 +22,7 @@ class OrganizationsController < ApplicationController
 
   def edit
     if user_signed_in?
-      if params.has_key?(:id)
-        if @organization = Organization.find(params[:id])
-          if !current_user.administrator?
-            if @organization.status != 'Pending'
-              if current_user.id != @organization.user_id
-                redirect_to @organization
-              end
-            end
-          end  
-        end
-        redirect_to dashboard_path
-      end
-      redirect_to dashboard_path
+      @organization = Organization.find(params[:id])
     else
       redirect_to new_user_session_path
     end
@@ -51,12 +37,14 @@ class OrganizationsController < ApplicationController
   end
 
   def destroy
+    Organization.find(params[:id]).destroy
   end
 
   def index
-    @organization = Organization.paginate(page: params[:page], :per_page => 1)
+    @organization = Organization.paginate(page: params[:page], :per_page => 30)
   end
 
   def show
+    @organization = Organization.find(params[:id])
   end
 end

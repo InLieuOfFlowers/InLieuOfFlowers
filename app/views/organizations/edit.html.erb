@@ -62,6 +62,7 @@
       <div class='control-group'>
         <div class='controls'>
           <%= f.submit "Update Organization", class: "btn btn-large btn-success" %>
+          <%= link_to "Cancel", organization_path(@organization), class: "btn btn-large btn-warning" %>
       </div>
     </div>
 	<% end %>

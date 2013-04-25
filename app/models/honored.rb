@@ -23,7 +23,8 @@
 class Honored < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :date_of_birth,
   	:date_of_death, :city, :state, :description, :user_id, :status, :avatar
-  
+
+
   has_attached_file :avatar, :styles => { :medium => "300x300>", 
   	:thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
 

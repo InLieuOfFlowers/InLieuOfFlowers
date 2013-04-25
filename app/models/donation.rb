@@ -11,4 +11,5 @@
 
 class Donation < ActiveRecord::Base
   attr_accessible :user_id, :honored_id
+
 end

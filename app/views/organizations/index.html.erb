@@ -1,10 +1,10 @@
 <div class="row-fluid">
 	<div class="mystyle span8 offset2">
 		<ul>
-  			<% @organization.each do |organization| %>
+  			<% for organization in @organization %>
    				<li>
    					<ul>
-   						<li><%= organization.name %></li>
+   						<li><%= link_to organization.name, organization %></li>
     					</ul>
    				</li>
   			<% end %>
