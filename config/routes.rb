@@ -1,5 +1,10 @@
 InLieuOfFlowers::Application.routes.draw do
   
+resources :contactmail do
+
+
+end
+
   devise_for :users
 
   root :to => 'main#home'
