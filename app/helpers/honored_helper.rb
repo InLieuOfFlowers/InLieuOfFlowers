@@ -1,2 +1,0 @@
-module HonoredHelper
-end
