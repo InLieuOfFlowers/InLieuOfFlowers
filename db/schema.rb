@@ -11,19 +11,65 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409123855) do
+ActiveRecord::Schema.define(:version => 20130418223823) do
 
-  create_table "honoreds", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
+  create_table "donation_details", :force => true do |t|
+    t.integer  "donation_id"
+    t.integer  "organization_id"
+    t.decimal  "amount"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "donations", :force => true do |t|
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "honored_id"
+  end
+
+  create_table "honored_organizations", :force => true do |t|
+    t.integer  "honored_id"
+    t.integer  "organization_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "honoreds", :force => true do |t|
+    t.string   "first_name",                                 :null => false
+    t.string   "last_name",                                  :null => false
+    t.date     "date_of_birth"
+    t.date     "date_of_death"
+    t.string   "city"
+    t.string   "state"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "status",              :default => "pending", :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name",                                :null => false
+    t.string   "street",                              :null => false
+    t.string   "city",                                :null => false
+    t.string   "state",                               :null => false
+    t.string   "zip",                                 :null => false
+    t.string   "phone",                               :null => false
+    t.string   "email",                               :null => false
+    t.string   "contact_name",                        :null => false
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "status",       :default => "pending", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -32,8 +78,16 @@ ActiveRecord::Schema.define(:version => 20130409123855) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.string   "street",                                    :null => false
+    t.string   "city",                                      :null => false
+    t.string   "state",                                     :null => false
+    t.string   "zip",                                       :null => false
+    t.string   "phone",                                     :null => false
+    t.boolean  "administrator",          :default => false, :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "first_name",                                :null => false
+    t.string   "last_name",                                 :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

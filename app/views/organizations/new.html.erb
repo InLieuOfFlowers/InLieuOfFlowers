@@ -1,0 +1,70 @@
+<div class="row-fluid">
+  <div class="mystyle span8 offset2">
+    <h1>Add Organization</h1>
+    <% @organization.errors.full_messages.each do |msg| %>
+          <p class='alert alert-error'><%= msg %></p>
+      <% end %>
+  	<%= form_for(@organization, :html => { :class => 'form-horizontal' }) do |f| %>
+  		<div class='control-group'>
+  			<%= f.label :name, class: 'control-label' %>
+  			<div class='controls'>
+  				<%= f.text_field :name %>
+  			</div>
+  		</div>
+  		<div class='control-group'>
+  			<%= f.label :street, class: 'control-label' %>
+  			<div class='controls'>
+  				<%= f.text_field :street %>
+  			</div>
+  		</div>
+
+  		<div class='control-group'>
+    			<%= f.label :city, class: 'control-label' %>
+    			<div class='controls'>
+    				<%= f.text_field :city %>
+    			</div>
+    		</div>
+
+    		<div class='control-group'>
+    			<%= f.label :state, class: 'control-label' %>
+    			<div class='controls'>
+    				<%= f.text_field :state, size: 2, maxlength: 2 %>
+    			</div>
+    		</div>
+
+    		<div class='control-group'>
+    			<%= f.label :zip, class: 'control-label' %>
+    			<div class='controls'>
+    				<%= f.text_field :zip %>
+    			</div>
+    		</div>
+
+    		<div class='control-group'>
+    			<%= f.label :phone, class: 'control-label' %>
+    			<div class='controls'>
+    				<%= f.text_field :phone, class: 'phone' %>
+    			</div>
+    		</div>
+
+    		<div class='control-group'>
+    			<%= f.label :email, class: 'control-label' %>
+    			<div class='controls'>
+    				<%= f.text_field :email %>
+    			</div>
+    		</div>
+
+    		<div class='control-group'>
+    			<%= f.label :contact_name, class: 'control-label' %>
+    			<div class='controls'>
+    				<%= f.text_field :contact_name %>
+    			</div>
+    		</div>
+
+        <div class='control-group'>
+          <div class='controls'>
+            <%= f.submit "Add Organization", class: "btn btn-large btn-success" %>
+        </div>
+      </div>
+  	<% end %>
+  </div>
+</div>

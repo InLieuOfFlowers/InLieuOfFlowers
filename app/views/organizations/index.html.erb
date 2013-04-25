@@ -1,0 +1,22 @@
+<div class="row-fluid">
+  <div classs="mystyle span2">
+    <%= form_tag organizations_path, method: :get, class: "form-search" do %>
+      <p>
+        <%= text_field_tag :search, params[:search], class: "input-medium search-query" %>
+        <%= submit_tag "Search", :name => nil, class: "btn btn-info" %>
+      </p>
+    <% end %>
+  </div>
+	<div class="mystyle span8">
+		<ul>
+  			<% for organization in @organization %>
+   				<li>
+   					<ul>
+   						<li><%= link_to organization.name, organization %></li>
+    					</ul>
+   				</li>
+  			<% end %>
+		</ul>
+		<%= will_paginate @organization, :renderer => BootstrapPagination::Rails %>
+	</div>
+</div>
