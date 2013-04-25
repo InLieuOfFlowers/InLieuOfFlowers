@@ -31,7 +31,6 @@ gem 'devise'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'paperclip'
-gem 'searchlogic'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
