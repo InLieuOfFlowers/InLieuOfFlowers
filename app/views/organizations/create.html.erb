@@ -1,18 +1,16 @@
 <div class="row-fluid">
-	<div class="mystyle span8 offset2">
+	<div class="mystyle span3">
+		<%= link_to "Add another organization", 
+			new_organization_path, class: 'btn btn-success' %>
+		<%= link_to "Organization List", organizations_path , 
+			class: 'btn btn-success' %>
+	</div>
+	<div class="mystyle span7">
 		<h1>Organization Registered</h1>
 		<p>
 			Well proccess your organization soon. We will contact you once
 			it has been approved and added to our list. Once your organization
 			has been approved, we will help you complete your honored's registration.
 		</p>
-	</div>
-</div>
-<div class="row-fluid">
-	<div class="mystyle span8 offset2", style="margin-top:20px">
-		<%= link_to "Do you wish to add another organization?", 
-			new_organization_path, class: 'btn btn-success' %>
-		<%= link_to "Do you wish to continue with registering your honored's account?",
-			new_honored_path, class: 'btn btn-success' %>
 	</div>
 </div>

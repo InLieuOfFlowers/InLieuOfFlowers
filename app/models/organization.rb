@@ -19,6 +19,8 @@
 class Organization < ActiveRecord::Base
   attr_accessible :city, :contact_name, :email, :name, :phone, :state, :street, :zip, :status
 
+  has_many :honored_organizations
+
   before_save { |user| user.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

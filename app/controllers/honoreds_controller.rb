@@ -14,8 +14,7 @@ class HonoredsController < ApplicationController
       redirect_to @honored
     else
       render 'new'
-    end
- 
+    end 
   end  
 
   def edit

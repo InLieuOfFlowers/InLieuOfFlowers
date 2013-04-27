@@ -11,4 +11,7 @@
 
 class HonoredOrganization < ActiveRecord::Base
   attr_accessible :honored_id, :organization_id
+
+  belongs_to :honored
+  has_one :organization
 end

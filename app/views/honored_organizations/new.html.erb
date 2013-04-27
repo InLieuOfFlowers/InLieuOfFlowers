@@ -1,15 +1,36 @@
-<div class="row-fliud">
-	<%= form_for(@honored_organization, :html => { :class => 'form-horizontal'}) do |f| %>
-		<div class="control-group">
-			<%= f.label "Organization Name", class: "control-label" %>
-			<div class="controls">
-				<%= f.collection_select(:organization_id, @organization, :id, :name) %>
-			</div>
-		</div>
-		<div class="control-group">
-			<div class="controls">
-				<%= f.submit "Finalize Organizations", class: "btn btn-large btn-primary" %>
-			</div>
-		</div>
-	<% end %>
+<div class="row-fluid">
+	<div class="mystyle span3">
+		<ul class="unstyled">
+			<li><%= link_to "Add organization", new_organization_path %></li>
+		</ul>
+	</div>
+	<div class="mystyle span7">
+		<h1>Add organizations</h1>
+		<p>
+			Add organization to you loved one's donation list.
+		</p>
+		<% if defined?(@organization) && !@organization.empty? %>
+      		<h3>Organization Names</h3>
+      		<p>
+        		This is a list of the organization listed within the system.
+        		Click one to view the details.
+      		</p>
+      		<%= form_for(@honored_organization, :html => { :class => 'form-horizontal',
+      			:multipart => true }) do |f| %>
+      			<%= hidden_field_tag "honored_id", @honored.id %>
+				<ul class="unstyled">
+  					<% for organization in @organization %>
+ 		   				<li>
+ 		   					<%= check_box_tag "id_checkbox[]", organization.id %>
+ 		   					<%= organization.name %>
+ 		   				</li>
+  		 			<% end %>
+				</ul>
+				<%= will_paginate @organization, :renderer => BootstrapPagination::Rails %>
+				<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+			<% end %>
+    	<% else %>
+      		<p>No organization listed. </p>
+    	<% end %>
+	</div>
 </div>

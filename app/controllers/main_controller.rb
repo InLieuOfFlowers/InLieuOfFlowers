@@ -17,6 +17,8 @@ class MainController < ApplicationController
   def dashboard
     if !user_signed_in?
       redirect_to root_path
+    else
+      @honored = Honored.where("user_id = ? AND status != ?", current_user.id, "complete")
     end
   end
 end
