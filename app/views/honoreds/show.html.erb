@@ -2,12 +2,12 @@
 	<h1>Honored saved</h1>
 	<div class="mystyle span3">
 		<ul class="unstyled">
-			<li><%= link_to "Edit Information", edit_honored_path(id: @honored.id), 
+			<li><%= link_to "Edit Information", edit_honored_path(honored_id: @honored.id), 
 				class: 'btn btn-warning' %></li>
-			<li><%= link_to "View added organizations", honored_organizations_path(id: @honored.id),
+			<li><%= link_to "View added organizations", honored_organizations_path(honored_id: @honored.id),
 				class: 'btn btn-info' %></li>
 			<li><%= link_to "Add Organizations for Donations", 
-				new_honored_organization_path(id: @honored.id),
+				new_honored_organization_path(honored_id: @honored.id),
 				class: 'btn btn-success' %></li>
 		</ul>
 	</div>
@@ -19,7 +19,7 @@
 			<li>City         : <%= @honored.city %></li>
 			<li>State        : <%= @honored.state %></li>
 			<li>Description  : <%= @honored.description %></li>
-			<li><%= image_tag @honored.avatar.url(:thumb) %></li>
+			<li><%= image_tag @honored.avatar.url(:medium) %></li>
 		</ul>
 	</div>
 </div>

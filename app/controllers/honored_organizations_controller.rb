@@ -38,10 +38,26 @@ class HonoredOrganizationsController < ApplicationController
   end
 
   def destroy
+    HonoredOrganization.destroy(params[:id])
+    redirect_to honored_organizations_path(honored_id: params[:honored_id])
   end
 
   def index
- 
+    @honored_organization_detail_array = []
+
+    @honored = Honored.find(params[:honored_id])
+
+    @honored_organization = HonoredOrganization.where("honored_id = ?", @honored.id)
+
+    @honored_organization.each do |honored_organization|
+
+      @organization = Organization.find(honored_organization.organization_id)
+      
+      @honored_organization_detail = { honored_organization: honored_organization.id, 
+        organization_name: @organization.name }
+
+      @honored_organization_detail_array.push(@honored_organization_detail)
+    end
   end
 
   def show

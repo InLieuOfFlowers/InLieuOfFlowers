@@ -1,9 +1,29 @@
 <div class="row-fluid">
+	<div class="span3">
+		<ul class="unstyled">
+			<li><%= link_to "Add Organization", new_honored_organization_path,
+				class: "btn btn-success" %></li>
+			<li><%= link_to "Back to honored account", honored_path(@honored),
+				class: "btn btn-success" %></li>
+		</ul>
+	</div>
 	<div class="span7">
-		<h1>Organizations</h1>
+		<h1>Organizations - <%= @honored.first_name + " " + @honored.last_name %></h1>
 		<p>These are the organizations added to your account.</p>
-		<ul>
-			<% for organizations in @organizations
+		<ul class="nonstyled">
+			<% for honored_organization_detail in @honored_organization_detail_array %>
+			<li>
+				<%= honored_organization_detail[:organization_name] %>
+			</li>
+			<li>
+				<%= link_to "Delete", 
+						honored_organization_path(
+							id: honored_organization_detail[:honored_organization],
+							honored_id: @honored.id), 
+						method: :delete,
+						class: "btn btn-warning" %>
+			</li>
+			<% end %>
 		</ul>
 	</div>
 </div>
