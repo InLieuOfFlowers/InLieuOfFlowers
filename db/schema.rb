@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418223823) do
+ActiveRecord::Schema.define(:version => 20130429195030) do
 
   create_table "donation_details", :force => true do |t|
     t.integer  "donation_id"
@@ -54,17 +54,21 @@ ActiveRecord::Schema.define(:version => 20130418223823) do
   end
 
   create_table "organizations", :force => true do |t|
-    t.string   "name",                                :null => false
-    t.string   "street",                              :null => false
-    t.string   "city",                                :null => false
-    t.string   "state",                               :null => false
-    t.string   "zip",                                 :null => false
-    t.string   "phone",                               :null => false
-    t.string   "email",                               :null => false
-    t.string   "contact_name",                        :null => false
-    t.datetime "created_at",                          :null => false
-    t.datetime "updated_at",                          :null => false
-    t.string   "status",       :default => "pending", :null => false
+    t.string   "name",                                       :null => false
+    t.string   "street",                                     :null => false
+    t.string   "city",                                       :null => false
+    t.string   "state",                                      :null => false
+    t.string   "zip",                                        :null => false
+    t.string   "phone",                                      :null => false
+    t.string   "email",                                      :null => false
+    t.string   "contact_name",                               :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
+    t.string   "status",              :default => "pending", :null => false
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "users", :force => true do |t|
