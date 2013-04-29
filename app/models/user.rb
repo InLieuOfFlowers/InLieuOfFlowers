@@ -37,8 +37,6 @@ class User < ActiveRecord::Base
   	:first_name, :last_name, :street, :city, :state, :zip, :phone, :administrator
   # attr_accessible :title, :body
 
-  has_many :honoreds
-
   before_save { |user| user.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

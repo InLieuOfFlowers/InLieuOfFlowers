@@ -1,9 +1,16 @@
 class HonoredOrganizationsController < ApplicationController
   def new
-    @honored = Honored.find(params[:id])
-    organization_id = HonoredOrganization.where("honored_id = ?", @honored.id).select(:organization_id).pluck(:id)
-    @organization = Organization.where("id NOT IN (?)", organization_id).
-                                 paginate(page: params[:page], :per_page => 30)
+    @honored = Honored.find(params[:honored_id])
+    organization_id = HonoredOrganization.where("honored_id = ?",
+     params[:honored_id]).select(:organization_id).pluck(:id)
+    
+    if organization_id.empty?
+      @organization = Organization.paginate(page: params[:page], :per_page => 30)
+    else
+      @organization = Organization.where("id NOT IN (?)", organization_id).
+                                  paginate(page: params[:page], :per_page => 30)
+    end
+    
     @honored_organization = HonoredOrganization.new
   end
 
