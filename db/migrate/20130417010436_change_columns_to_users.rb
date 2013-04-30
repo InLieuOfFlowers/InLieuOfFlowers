@@ -7,6 +7,6 @@ class ChangeColumnsToUsers < ActiveRecord::Migration
   	change_column :users, :state, :string, :null => false
   	change_column :users, :zip, :string, :null => false
   	change_column :users, :phone, :string, :null => false
-  	change_column :users, :administrator, :booleanm, :default => false, :null => false
+  	change_column :users, :administrator, :boolean, :default => false, :null => false
   end
 end
