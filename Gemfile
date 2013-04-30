@@ -24,6 +24,10 @@ group :test, :development do
 	gem 'annotate'
 end
 
+group :production do
+	gem 'pg'
+end
+
 gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'bootstrap-datepicker-rails'

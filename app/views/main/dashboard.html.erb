@@ -23,24 +23,9 @@
 			<ul class='unstyled'>
 				<% for honored in @honored %>
 					<li>
-						<%= image_tag @honored.avatar.url(:thumb) %>
 						<%= link_to honored.first_name+" "+honored.last_name, honored_path(honored) %>
 					</li>
 				<% end %>
-			</ul>
-		<% end %>
-		<h3>Your Donations</h3>
-		<% if !defined?(@donation) || @donation.empty? %>
-			<p>
-				You have not made any donations in the past 30 days.
-			<p>
-		<% else %>
-			<p>Donation you have made in the past thirty days.</p>
-			<ul class="unstyled">
-				<li>
-					<%= @donation.date_created %> - 
-					<%= @donation
-				</li>
 			</ul>
 		<% end %>
 	</div>
