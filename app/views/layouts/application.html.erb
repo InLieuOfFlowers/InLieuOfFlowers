@@ -17,10 +17,12 @@ body{background-color: #d9f7f4;
 
 </head>
 <body>
-<%= render 'layouts/navbar' %>
-<%= render 'layouts/header' %>
-<%= yield %>
-<%= render 'layouts/footer' %>
 
+<%= render 'layouts/navbar' %>
+<div id="wrapper">
+	<%= render 'layouts/header' %>
+	<%= yield %>
+</div>
+	<%= render 'layouts/footer' %>
 </body>
 </html>

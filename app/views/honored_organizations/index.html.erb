@@ -1,7 +1,8 @@
 <div class="row-fluid">
 	<div class="span3">
 		<ul class="unstyled">
-			<li><%= link_to "Add Organization", new_honored_organization_path,
+			<li><%= link_to "Add Organization", 
+				new_honored_organization_path(honored_id: @honored.id),
 				class: "btn btn-success" %></li>
 			<li><%= link_to "Back to honored account", honored_path(@honored),
 				class: "btn btn-success" %></li>

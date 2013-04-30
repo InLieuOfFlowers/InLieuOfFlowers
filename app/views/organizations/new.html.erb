@@ -1,5 +1,5 @@
 <div class="row-fluid">
-  <div class="mystyle span8 offset2">
+  <div class="span8 offset2">
     <h1>Add Organization</h1>
     <% @organization.errors.full_messages.each do |msg| %>
           <p class='alert alert-error'><%= msg %></p>
@@ -59,6 +59,12 @@
     				<%= f.text_field :contact_name %>
     			</div>
     		</div>
+
+        <div class='control-group'>
+          <div class="controls">
+             <%= f.file_field :avatar %>
+          </div>
+        </div>
 
         <div class='control-group'>
           <div class='controls'>

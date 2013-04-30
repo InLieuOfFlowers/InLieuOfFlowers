@@ -42,6 +42,8 @@ class HonoredsController < ApplicationController
   end
 
   def destroy
+    Honored.destroy(params[:id])
+    redirect_to dashboard_path
   end
 
   def index

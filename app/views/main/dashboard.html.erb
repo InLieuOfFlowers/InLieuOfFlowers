@@ -1,24 +1,48 @@
+<div>
 <div class="row-fliud">
 	<div class="mystyle span3">
 		<ul class="unstyled">
-			<%= link_to "Add a loved one", new_honored_path, class: 'btn btn-success' %>
-			<%= link_to "Make a donation", new_donation_path, class: 'btn btn-success' %>
-			<%= link_to "Register an organization", new_organization_path, class: 'btn btn-success' %>
+			<%= link_to "Add a loved one", new_honored_path, 
+				class: 'btn btn-success btn-block' %>
+			<%= link_to "Make a donation", new_donation_path, 
+				class: 'btn btn-success btn-block' %>
+			<%= link_to "Register an organization", new_organization_path, 
+				class: 'btn btn-success btn-block' %>
 		</ul>
 	</div>
-	<div class="mystyle span7">
-		<h3>Honored you have added</h3>
-		<p>
-			These are the honored that you have added to the system. 
-			Click on them to view their detailed
-			information.
-		<p>
-		<ul class='unstyled'>
-			<% if defined?(@honored) && !@honored.empty? %>
+	<div class="mystyle span8">
+		<h3>Your Honored</h3>
+		<% if !defined?(@honored) || @honored.empty? %>
+			<p>
+				You currently do not have any honored registered at the moment.
+			</p>
+			<%= link_to "Add a loved one", new_honored_path, 
+				class: 'btn btn-success btn-block' %>
+		<% else %>
+			<p>Honored in the system</p>
+			<ul class='unstyled'>
 				<% for honored in @honored %>
-					<li><%= link_to honored.first_name+" "+honored.last_name, honored_path(honored) %></li>
+					<li>
+						<%= image_tag @honored.avatar.url(:thumb) %>
+						<%= link_to honored.first_name+" "+honored.last_name, honored_path(honored) %>
+					</li>
 				<% end %>
-			<% end %>
-		</ul>
+			</ul>
+		<% end %>
+		<h3>Your Donations</h3>
+		<% if !defined?(@donation) || @donation.empty? %>
+			<p>
+				You have not made any donations in the past 30 days.
+			<p>
+		<% else %>
+			<p>Donation you have made in the past thirty days.</p>
+			<ul class="unstyled">
+				<li>
+					<%= @donation.date_created %> - 
+					<%= @donation
+				</li>
+			</ul>
+		<% end %>
 	</div>
 </div>
+<div>

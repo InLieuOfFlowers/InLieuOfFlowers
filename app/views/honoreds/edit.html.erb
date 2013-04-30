@@ -1,5 +1,5 @@
 <div class="row-fluid">
-	<div class="mystyle span8 offset2">
+	<div class="span8 offset2">
 		<h1>Edit Honored Account</h1>
 		<% @honored.errors.full_messages.each do |msg| %>
       		<p class='alert alert-error'><%= msg %></p>
@@ -17,12 +17,13 @@
 					<%= f.text_field :last_name %>
 				</div>
 			</div>
-
-		<h1>Important !</h1>
-		<p>
-			The following a optional information that will help others find you loved one.
-			Please don't enter information if you do not feel confortable letting others view it.
-		</p>
+		<div class="mystyle" style="margin-bottom: 50px">
+			<h3>Important !</h3>
+			<p>
+				The following a optional information that will help others find you loved one.
+				Please don't enter information if you do not feel confortable letting others view it.
+			</p>
+		</div>
 		<div class='control-group'>
 			<%= f.label :date_of_birth, class: 'control-label' %>
 			<div class='controls'>
@@ -51,7 +52,7 @@
 			<%= f.label :description, class: 'control-label' %>
 			<small>Enter a brief (256 maximun characters) description of you loved one</small>
 			<div class='controls'>
-				<%= f.text_area :description %>
+				<%= f.text_area :description, rows: 5, width: 256 %>
 			</div>			
 		</div>
 		<div class='control-group'>
@@ -68,6 +69,10 @@
 		<div class='control-group'>
 			<div class='controls'>
 				<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+				<%= link_to "Delete", @honored, method: :delete, 
+					class: "btn btn-danger btn-large",
+					:data => { :confirm => "Are you sure?" } %>
+				<%= link_to "Cancel", @honored, class: "btn btn-large btn-warning" %>
 			</div>
 		</div>
 	<% end %>

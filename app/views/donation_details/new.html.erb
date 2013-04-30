@@ -1,2 +1,25 @@
-<h1>DonationDetails#new</h1>
-<p>Find me in app/views/donation_details/new.html.erb</p>
+<div class="row-fluid">
+	<div class="span3">
+	</div>
+	<div class="span7">
+		<h3>Donation Detail</h3>
+			<%= form_for(@donation_detail, 
+				:html => { :class => 'form-horizontal'}) do |f| %>
+				<% @organization_report.each do |report| %>
+					<%= f.hidden_field :donation_id, value: @donation_id %>
+					<div class="control-group">
+						<%= f.label report[:organization_name], class: "control-label" %>
+						<div class="controls">
+							<%= f.text_field :amount, index: report[:organization_id],
+								organization_id: report[:organization_id] %>
+						</div>
+					</div>
+				<% end %>
+				<div class="control-group">
+					<div class="controls">
+						<%= f.submit "Make Donation", class: "btn btn-success sapn2" %>
+					</div>
+				</div>
+			<% end %>				
+	</div>
+</div>

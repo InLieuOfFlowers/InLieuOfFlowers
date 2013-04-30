@@ -21,7 +21,8 @@
 #
 
 class Organization < ActiveRecord::Base
-  attr_accessible :city, :contact_name, :email, :name, :phone, :state, :street, :zip, :status
+  attr_accessible :city, :contact_name, :email, :name, :phone, :state,
+    :street, :zip, :status, :avatar
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", 
     :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
