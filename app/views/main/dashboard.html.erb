@@ -1,3 +1,4 @@
+<div>
 <div class="row-fliud">
 	<div class="span3">
 		<ul class="unstyled">
@@ -7,7 +8,7 @@
 				class: 'btn btn-success btn-block' %>
 			<%= link_to "Register an organization", new_organization_path, 
 				class: 'btn btn-success btn-block' %>
-			<%= link_to "View honoreds", honoreds_path,
+			<%= link_to "View a list of honored", honoreds_path,
 				class: 'btn btn-success btn-block' %>
 		</ul>
 	</div>
@@ -20,7 +21,7 @@
 						You currently do not have any honored registered at the moment.
 					</p>
 				<% else %>
-					<p>Honored you have registered</p>
+					<p>Click on image to view detail infomation</p>
 					<ul class='unstyled'>
 						<% for honored in @honored %>
 							<li>
@@ -36,7 +37,31 @@
 			</div>
 			<div class="span3">
 				<h3>Donations</h3>
+				<% if !@donation_reciept_array.blank? %>
+					<ul class="unstyled">
+						<% @donation_reciept_array.each do |donation_reciept| %>
+							<li>
+								<b>Donation id:</b>
+								<%= donation_reciept[:donation_id] %>
+							</li>
+							<li>
+								<b>Honored's Name:</b>
+								<%= donation_reciept[:honored_name] %>
+							</li>
+							<li style="margin-bottom: 50px;">
+								<b>Date:</b>
+								<%= donation_reciept[:donation_date] %>
+							</li>
+						<% end %>
+					</ul>
+				<% else %>
+					<p>
+						You currently do not have any donation for the
+						past 30 days.
+					</p>				
+				<% end %>
 			</div>
 		</div>
 	</div>
 </div>
+<div>
