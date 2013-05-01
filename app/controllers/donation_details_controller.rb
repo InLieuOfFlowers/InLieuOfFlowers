@@ -10,10 +10,9 @@ class DonationDetailsController < ApplicationController
 
       org_report = {organization_id: @organization.id, 
         organization_name: @organization.name}
-      @organization_report.push(org_report)
-
-      @donation_detail = DonationDetail.new
+      @organization_report.push(org_report)      
     end
+    @donation_detail = DonationDetail.new
   end
 
   def create
