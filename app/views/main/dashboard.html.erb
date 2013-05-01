@@ -1,33 +1,42 @@
-<div>
 <div class="row-fliud">
-	<div class="mystyle span3">
+	<div class="span3">
 		<ul class="unstyled">
 			<%= link_to "Add a loved one", new_honored_path, 
 				class: 'btn btn-success btn-block' %>
-			<%= link_to "Make a donation", new_donation_path, 
+			<%= link_to "Make a donation", honoreds_path, 
 				class: 'btn btn-success btn-block' %>
 			<%= link_to "Register an organization", new_organization_path, 
 				class: 'btn btn-success btn-block' %>
+			<%= link_to "View honoreds", honoreds_path,
+				class: 'btn btn-success btn-block' %>
 		</ul>
 	</div>
-	<div class="mystyle span8">
-		<h3>Your Honored</h3>
-		<% if !defined?(@honored) || @honored.empty? %>
-			<p>
-				You currently do not have any honored registered at the moment.
-			</p>
-			<%= link_to "Add a loved one", new_honored_path, 
-				class: 'btn btn-success btn-block' %>
-		<% else %>
-			<p>Honored in the system</p>
-			<ul class='unstyled'>
-				<% for honored in @honored %>
-					<li>
-						<%= link_to honored.first_name+" "+honored.last_name, honored_path(honored) %>
-					</li>
+	<div class="span8">
+		<div class="fluid-row">
+			<div class="span3">
+				<h3>Your Honored</h3>
+				<% if !defined?(@honored) || @honored.empty? %>
+					<p>
+						You currently do not have any honored registered at the moment.
+					</p>
+				<% else %>
+					<p>Honored you have registered</p>
+					<ul class='unstyled'>
+						<% for honored in @honored %>
+							<li>
+								<%= link_to(image_tag(honored.avatar.url(:thumb)),
+									honored_path(honored)) %>
+							</li>
+							<li>
+								<%= link_to honored.first_name+" "+honored.last_name, honored_path(honored) %>
+							</li>
+						<% end %>
+					</ul>
 				<% end %>
-			</ul>
-		<% end %>
+			</div>
+			<div class="span3">
+				<h3>Donations</h3>
+			</div>
+		</div>
 	</div>
 </div>
-<div>
