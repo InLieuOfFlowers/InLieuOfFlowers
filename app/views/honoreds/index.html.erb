@@ -28,4 +28,17 @@
 				class: "btn btn-success btn-block" %>
 		<% end %>
 	</div>
+<div class="row-fluid">
+	<div class="mystyle span8 offset2">
+		<ul>
+			<% @honored.each do |honored| %>
+			<li>
+				<ul>
+					<li><%= image_tag @honored.avatar.url(:thumb) %></li>
+					<li><%= honored.first_name + " " + honored.last_name %></li>
+				</ul>
+			<li>
+		</ul>
+		<%= will_paginate @organization, :renderer => BootstrapPagination::Rails %>
+	</div>
 </div>
