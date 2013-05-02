@@ -68,7 +68,8 @@
 				:data => { :confirm => "Are you sure?" } %>
 		<% end %>
 
-		<%= link_to "Make Donation", new_donation_path(honored_id: @honored.id),
-			class: "btn btn-success btn-large" %>
+		<%= link_to "Make Donation", 
+			donations_path(honored_id: @honored.id), 
+			method: :post, class: "btn btn-success btn-block" %>
 	</div>
 </div>
