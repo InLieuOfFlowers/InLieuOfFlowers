@@ -1,17 +1,22 @@
-<div class="row-fluid">
+<div class="row-fluid">	
 	<div class="span3">
-		<ul class="unstyled">
-			<li><%= link_to "Back to dashboard", dashboard_path,
+		<ul class="unstyled listBorder">
+			<li><%= link_to "Dashboard", dashboard_path,
 				class: "btn btn-success btn-block" %></li>
 			<li><%= link_to "Create honored", new_honored_path,
+				class: "btn btn-success btn-block" %></li>
+			<li><%= link_to "View Organizations", organizations_path,
 				class: "btn btn-success btn-block" %></li>
 		</ul>
 	</div>
 	<div class="span8">
 		<% if !@honored.blank? %>
 			<h3>Honored</h3>
-			<p>Click on image to view detail information.</p>
-			<ul class="unstyled">
+			<p>
+				Click on image to view detail information.<br>
+				From there you will be able to make a donation.
+			</p>			
+			<ul class="unstyled listBorder">
 				<% @honored.each do |honored| %>
 					<li>
 						<%= link_to(image_tag(honored.avatar.url(:thumb)),

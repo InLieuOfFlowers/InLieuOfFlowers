@@ -27,15 +27,19 @@ class MainController < ApplicationController
       @donation_reciept_array = []
       if !@donation.blank?
         @donation.each do |donation|
-          @donation_honored = Honored.find(donation.honored_id)
-          
-          honored_name = @donation_honored.first_name + " " + @donation_honored.last_name
-          
-          donation_reciept = {donation_id: donation.id,
-            honored_name: honored_name, 
-            donation_date: donation.created_at.to_time.strftime('%B %A %Y') }
+          @donation_detail  = DonationDetail.where("donation_id = ?", donation.id)
 
-          @donation_reciept_array << donation_reciept
+          if !@donation_detail.blank?
+            @donation_honored = Honored.find(donation.honored_id)
+          
+            honored_name = @donation_honored.first_name + " " + @donation_honored.last_name
+          
+            donation_reciept = {donation_id: donation.id,
+              honored_name: honored_name, 
+              donation_date: donation.created_at.to_time.strftime('%B %A %Y') }
+
+            @donation_reciept_array << donation_reciept
+          end
         end
       end
     end

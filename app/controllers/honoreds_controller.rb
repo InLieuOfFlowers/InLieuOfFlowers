@@ -8,10 +8,15 @@ class HonoredsController < ApplicationController
   end
 
   def create
-    @honored = Honored.new(params[:honored])
-    @honored.user_id = current_user.id
-    if @honored.save
-      redirect_to @honored
+    if !params[:honored].blank?
+      @honored = Honored.new(params[:honored])
+      @honored.user_id = current_user.id
+      
+      if @honored.save
+        redirect_to @honored
+      else
+        render 'new'
+      end
     else
       render 'new'
     end 

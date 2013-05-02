@@ -1,10 +1,18 @@
 <div class="row-fluid">
-	<div class="span8 offset2">
+	<div class="span3">
+		<ul class="unstyled listBorder">
+			<li><%= link_to "Dashboard", dashboard_path,
+				class: "btn btn-success btn-block" %></li>
+			<li><%= link_to "View Honoreds", honoreds_path,
+				class: "btn btn-success btn-block" %></li>
+			<li><%= link_to "View Organizations", organizations_path,
+				class: "btn btn-success btn-block" %></li>
+		</ul>
+	</div>
+	<div class="span8">
 		<h1>Edit Honored Account</h1>
-		<% @honored.errors.full_messages.each do |msg| %>
-      		<p class='alert alert-error'><%= msg %></p>
-    	<% end %>
-		<%= form_for(@honored, :html => { :class => 'form-horizontal', :multipart => true }) do |f| %>
+		<%= form_for(@honored, :html => { :class => 'form-horizontal listBorder', 
+			:multipart => true }) do |f| %>
 			<div class='control-group'>
 				<%= f.label :first_name, class: 'control-label' %>
 				<div class='controls'>
@@ -68,11 +76,11 @@
 		</div>
 		<div class='control-group'>
 			<div class='controls'>
-				<%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+				<%= f.submit "Submit", class: "btn btn-primary" %>
 				<%= link_to "Delete", @honored, method: :delete, 
-					class: "btn btn-danger btn-large",
+					class: "btn btn-danger",
 					:data => { :confirm => "Are you sure?" } %>
-				<%= link_to "Cancel", @honored, class: "btn btn-large btn-warning" %>
+				<%= link_to "Cancel", @honored, class: "btn btn-warning" %>
 			</div>
 		</div>
 	<% end %>
