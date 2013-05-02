@@ -7,6 +7,7 @@
 				:html => { :class => 'form-horizontal'}) do |f| %>
 				<% @organization_report.each do |report| %>
 					<%= f.hidden_field :donation_id, value: @donation_id %>
+					<%= f.hidden_field :honored_id, value: @honored.id %>
 					<div class="control-group">
 						<%= f.label report[:organization_name], class: "control-label" %>
 						<div class="controls">
