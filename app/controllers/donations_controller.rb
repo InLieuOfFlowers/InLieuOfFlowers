@@ -53,10 +53,9 @@ class DonationsController < ApplicationController
     @donation = Donation.all
     @donation_reciept_array = []
 
-    if !@donation.blank?
+    if @donation.blank?
       @donation.each do |donation|
         @donation_detail  = DonationDetail.where("donation_id = ?", donation.id)
-
         if !@donation_detail.blank?
           @donation_honored = Honored.find(donation.honored_id)
         
