@@ -30,8 +30,8 @@
 					class: "btn btn-success btn-block" %>
 			</li>
 			<li>
-				<%= link_to "All Honored", honoreds_path, 
-					class: "btn btn-success btn-block" %>
+				<%= link_to "All Honored", donations_path(honored_id: @honored.id), 
+				method: :post, class: "btn btn-success btn-block" %>
 			</li>
 		</ul>
 	</div>
