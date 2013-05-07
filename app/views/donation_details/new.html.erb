@@ -14,6 +14,9 @@
 			   this time. Organizations will be added soon. Please check back.
 			</p>
 		<% else %>
+		<p>
+			Please enter donation amount.
+		</p>
 			<%= form_for @donation_detail,
 				:html => { :class => 'form-horizontal'} do |f| %>
 				<% @organization_report.each do |report| %>

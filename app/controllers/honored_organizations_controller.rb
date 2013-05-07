@@ -24,6 +24,7 @@ class HonoredOrganizationsController < ApplicationController
           @honored_organization.honored_id = params[:honored_id]
           @honored_organization.organization_id = check
           @honored_organization.save
+          @honored = Honored.find(params[:honored_id])
         end
       end  
     end
