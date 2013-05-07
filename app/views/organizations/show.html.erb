@@ -33,8 +33,11 @@
 </div>
 <div class="row-fluid">
 	<div class="span8 offset2 text-center" %>
-		<%= link_to "Delete", @organization, 
-			method: :delete, data: { confirm: "You sure?" }, class: "btn btn-warning" %>
-		<%= link_to "Edit", edit_organization_path(@organization), class: "btn btn-success" %>
+		<% if current_user.administrator %>
+			<%= link_to "Delete", @organization, 
+				method: :delete, data: { confirm: "You sure?" }, class: "btn btn-warning" %>
+			<%= link_to "Edit", edit_organization_path(@organization), 
+				class: "btn btn-success" %>
+		<% end %>		
 	</div>
 </div>

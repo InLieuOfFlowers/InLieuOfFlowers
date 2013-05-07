@@ -3,6 +3,9 @@
 		Honored - 
 		<%= @honored.first_name + " " + @honored.last_name %>
 	</h1>
+	<% if flash[:notice] %>
+		<p class="alert"><%= flash[:notice] %></p>
+	<% end %>
 	<div class="span3">
 		<ul class="unstyled">
 			<li>
@@ -70,6 +73,6 @@
 
 		<%= link_to "Make Donation", 
 			donations_path(honored_id: @honored.id), 
-			method: :post, class: "btn btn-success btn-block" %>
+			method: :post, class: "btn btn-success" %>
 	</div>
 </div>

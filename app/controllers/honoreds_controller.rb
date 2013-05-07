@@ -11,6 +11,10 @@ class HonoredsController < ApplicationController
     if !params[:honored].blank?
       @honored = Honored.new(params[:honored])
       @honored.user_id = current_user.id
+
+      if @honored.date_of_death < @honored.date_of_birth
+        render 'new'
+      end
       
       if @honored.save
         redirect_to @honored

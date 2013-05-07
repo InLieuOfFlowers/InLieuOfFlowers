@@ -10,6 +10,7 @@ class OrganizationsController < ApplicationController
   def create
     if user_signed_in?
       @organization = Organization.new(params[:organization])
+      @organization.name = @organization.name.downcase
       @organization.status = 'pending'
 
       if !@organization.save
@@ -42,7 +43,7 @@ class OrganizationsController < ApplicationController
 
   def index
     if params.has_key?(:search)
-      @organization = Organization.where("name like ?", "%#{params[:search]}%").paginate(page: params[:page], :per_page => 30)
+      @organization = Organization.where("name like ?", "%#{params[:search].downcase}%").paginate(page: params[:page], :per_page => 30)
     else  
       @organization = Organization.paginate(page: params[:page], :per_page => 30)
     end

@@ -12,6 +12,9 @@
 	<div class="span8">
 		<% if !@honored.blank? %>
 			<h3>Honored</h3>
+			<% if flash[:notice] %>
+				<p class="alert"><%= flash[:notice] %></p>
+			<% end %>
 			<p>
 				Click on image to view detail information.<br>
 				From there you will be able to make a donation.

@@ -1,5 +1,7 @@
 <h2>Sign in</h2>
-
+<% if flash[:notice] %>
+	<p class="alert"><%= flash[:notice] %></p>
+<% end %>
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),
 	:html => { class: 'listBorder' }) do |f| %>
   <div><%= f.label :email %><br />
