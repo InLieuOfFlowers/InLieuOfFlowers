@@ -53,7 +53,7 @@ class DonationsController < ApplicationController
     @donation = Donation.all
     @donation_reciept_array = []
 
-    if @donation.blank?
+    if !@donation.blank?
       @donation.each do |donation|
         @donation_detail  = DonationDetail.where("donation_id = ?", donation.id)
         if !@donation_detail.blank?
@@ -65,7 +65,7 @@ class DonationsController < ApplicationController
             honored_name: honored_name, 
             donation_date: donation.created_at.to_time.strftime('%B %A %Y') }
 
-          @donation_reciept_array.push(donation_reciept)
+          @donation_reciept_array << donation_reciept
         end
       end
     end

@@ -13,7 +13,12 @@
 	</div>
 	<div class="span8">
 		<h3>Donations</h3>
-		<% if !@donation_reciept_array.blank? %>
+		<% if @donation_reciept_array.blank? %>
+			<p>
+				There are not any donations in the system. Would you like to make one?
+			</p>	
+			<%= link_to "Make Donation", honoreds_path, class: "btn btn-success" %>		
+		<% else %>
 			<ul class="unstyled">
 				<% @donation_reciept_array.each do |donation_reciept| %>
 					<li>
@@ -32,12 +37,7 @@
 						<%= link_to "See Detail",donation_path(donation_reciept[:donation_id]) %>
 					</li>
 				<% end %>
-			</ul>
-		<% else %>
-			<p>
-				There are not any donations in the system. Would you like to make one?
-			</p>	
-			<%= link_to "Make Donation", honoreds_path, class: "btn btn-success" %>			
+			</ul>	
 		<% end %>
 	</div>
 </div>
